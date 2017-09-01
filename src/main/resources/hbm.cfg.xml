@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <property name="hibernate.connection.provider_class">
+            com.alibaba.druid.support.hibernate.DruidConnectionProvider
+        </property>
+        <property name="driverClassName">com.mysql.jdbc.Driver</property>
+        <property name="url">jdbc:mysql://localhost:3306/hibernate_test</property>
+        <property name="username">root</property>
+        <property name="password">root</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- 配置Mapper -->
+        <mapping class="online.dinghuiye.example.entity.ExcelUtil4JUserEntity"/>
+        <mapping class="online.dinghuiye.example.entity.ExcelUtil4JUserInfoEntity"/>
+        <mapping class="online.dinghuiye.example.entity.ExcelUtil4JUserRoleEntity"/>
+
+    </session-factory>
+
+</hibernate-configuration>
