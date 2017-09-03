@@ -37,7 +37,8 @@ public class PasswordRepairer implements RowRecordPerPersistentRepairer {
             obj.setPassword(MD5Util.encode(obj.getPassword()));
 
             // 精确的进度展示，可以操作process对象
-            process.updateProcess(1);
+            if (process != null)
+                process.updateProcess(1);
         }
     }
 }
