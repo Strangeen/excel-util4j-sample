@@ -18,6 +18,8 @@ import java.util.List;
  *
  * v2.1.0 进度监控更佳精确，接口提供了进度对象
  *        如果遍历了List<RowRecord> list，可以对每一次循环执行process.updateProcess(1)
+ *        需要注意的是，使用前必须判断`process`是否为`null`，
+ *        如果入口方法出传入的`ProcessObserver`为`null`，那么`process`就会为`null`
  *        如果没有遍历或者不执行上述方法，当repairer执行完毕，程序会自动修正进度，
  *           进度展示效果会立即变更到repairer方法执行完毕的进度状态
  *
