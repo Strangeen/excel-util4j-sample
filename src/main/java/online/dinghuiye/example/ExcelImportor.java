@@ -21,6 +21,9 @@ import java.util.Observer;
 
 /**
  * @author Strangeen on 2017/08/30
+ *
+ * @author Strangeen on 2017/9/3
+ * @version 2.1.0
  */
 public class ExcelImportor {
 

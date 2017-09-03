@@ -3,7 +3,9 @@ package online.dinghuiye.example.entity;
 import online.dinghuiye.api.annotation.validate.Validate;
 import online.dinghuiye.api.validation.Validator;
 import online.dinghuiye.core.annotation.convert.ConstValue;
+import online.dinghuiye.core.annotation.convert.ValueConvert;
 import online.dinghuiye.core.annotation.excel.SheetTitleName;
+import online.dinghuiye.example.convertor.CurrentTimeConvertor;
 import online.dinghuiye.example.validator.UsernameUniqueValidator;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.validator.constraints.NotBlank;
@@ -11,9 +13,13 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 /**
  * @author Strangeen on 2017/08/27
+ *
+ * @author Strangeen on 2017/9/3
+ * @version 2.1.0
  */
 @Entity
 @DynamicInsert(true)
@@ -35,6 +41,9 @@ public class ExcelUtil4JUserEntity {
     @NotBlank
     @Size(max = 20, min = 6, message = "输入{min}~{max}个字", groups = {Validator.class})
     private String password;
+
+    @ValueConvert(CurrentTimeConvertor.class) // 自定义转换器，存入当前时间
+    private Date createTime;
 
     @ConstValue("1") // 常量值转换器，导入时会被设置为1
     private Integer enable;
@@ -73,6 +82,16 @@ public class ExcelUtil4JUserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Basic
+    @Column(name = "create_time")
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Basic

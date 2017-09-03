@@ -15,6 +15,9 @@ import java.util.Date;
 
 /**
  * @author Strangeen on 2017/08/27
+ *
+ * @author Strangeen on 2017/9/3
+ * @version 2.1.0
  */
 @Entity
 @Table(name = "excel_util4j_user_info")

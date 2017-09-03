@@ -17,6 +17,7 @@ import java.util.Set;
  * 区别于{@link UniqueValidator}，后者是缓存检查，效率更高
  *
  * @author Strangeen on 2017/09/03
+ * @version 2.1.0
  */
 public class PhoneUniqueValidator implements Validator {
 
