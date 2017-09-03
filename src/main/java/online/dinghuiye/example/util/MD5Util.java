@@ -3,7 +3,6 @@ package online.dinghuiye.example.util;
 import sun.misc.BASE64Encoder;
 
 import java.security.MessageDigest;
-import java.util.Base64;
 
 /**
  * @author Strangeen on 2017/08/30

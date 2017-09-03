@@ -4,7 +4,7 @@ import online.dinghuiye.api.annotation.validate.Validate;
 import online.dinghuiye.api.validation.Validator;
 import online.dinghuiye.core.annotation.convert.ConstValue;
 import online.dinghuiye.core.annotation.excel.SheetTitleName;
-import online.dinghuiye.example.validator.UniqueValidator;
+import online.dinghuiye.example.validator.UsernameUniqueValidator;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -26,7 +26,7 @@ public class ExcelUtil4JUserEntity {
     @SheetTitleName("账号") // excel表字段对应
     @NotBlank
     @Size(max = 20, message = "输入最大{max}个字")
-    @Validate(validator = UniqueValidator.class, message = "已被注册") // 自定义检验器，判断重复
+    @Validate(validator = UsernameUniqueValidator.class, message = "已被注册") // 自定义检验器，判断重复
     private String username;
 
     @SheetTitleName("密码")

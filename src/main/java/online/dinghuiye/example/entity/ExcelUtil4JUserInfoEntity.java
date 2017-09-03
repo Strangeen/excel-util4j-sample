@@ -5,7 +5,7 @@ import online.dinghuiye.core.annotation.convert.BlankToNull;
 import online.dinghuiye.core.annotation.convert.DateFormat;
 import online.dinghuiye.core.annotation.convert.ValueMap;
 import online.dinghuiye.core.annotation.excel.SheetTitleName;
-import online.dinghuiye.example.validator.UniqueValidator;
+import online.dinghuiye.example.validator.PhoneUniqueValidator;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -44,7 +44,7 @@ public class ExcelUtil4JUserInfoEntity {
     @SheetTitleName("电话")
     // hibernate validator的正则验证，这里大概写一个电话的验证正则
     @Pattern(regexp = "(^(\\+|0)[0-9]{2}[0-9]{11}$)|(^[0-9]{11}$)", message = "填写不正确")
-    @Validate(validator = UniqueValidator.class, message = "已被注册")
+    @Validate(validator = PhoneUniqueValidator.class, message = "已被注册")
     private String phone;
 
     @SheetTitleName("地址")

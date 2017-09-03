@@ -47,7 +47,7 @@ public class UniqueValidator implements Validator {
     }
 
     @Override
-    public <User> boolean validate(Object fieldValue, Field field, User obj) {
+    public <T> boolean validate(Object fieldValue, Field field, T obj) {
 
         // 判断是username还是phone，这里只是演示，所以将cache写在一起，常规思路应该是分开的2个类
         if ("username".equals(field.getName())) {

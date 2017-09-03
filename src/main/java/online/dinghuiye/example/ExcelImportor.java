@@ -1,5 +1,6 @@
 package online.dinghuiye.example;
 
+import online.dinghuiye.api.entity.Process;
 import online.dinghuiye.api.entity.ResultStatus;
 import online.dinghuiye.api.entity.RowRecord;
 import online.dinghuiye.api.entity.TransactionMode;
@@ -49,7 +50,8 @@ public class ExcelImportor {
                         @Override
                         public void update(Observable o, Object arg) {
                             // 创建导入进度观察者，arg为导入进度百分数（没有%）
-                            System.out.println("进度：" + arg);
+                            Process process = (Process) arg;
+                            System.out.println("进度：" + process.getProcess() + "，当前阶段：" + process.getNode());
                         }
                     },
                     ExcelUtil4JUserEntity.class); // 传入POJO
@@ -64,6 +66,7 @@ public class ExcelImportor {
                 } else
                     successCount ++; // 记录成功数
             }
+            // 注意：MULTIPLE为整体事务，successCount依然可能不为0，仅作为标识，实际上没有任何数据存入数据库的
             System.out.println("success " + successCount + ", error " + errorCount);
 
         } catch (Exception e) {
